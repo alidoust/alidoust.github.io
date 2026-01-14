@@ -50,9 +50,27 @@
         .emblem {
             height: 100%;
             width: auto;
-            /* Maintains original aspect ratio */
+            display: none;
+        }
+
+        #modern {
             display: block;
         }
+
+        #modern:target,
+        #simplified:target {
+            display: block;
+        }
+
+        :target~.flag-container #modern,
+        :target {
+            display: block;
+        }
+
+        #simplified:target~#modern {
+            display: none;
+        }
+
     </style>
 </head>
 
@@ -60,7 +78,8 @@
     <div class="flag-container">
         <div class="stripe green"></div>
         <div class="stripe white">
-            <img src="assets/lion-and-sun.svg" alt="Emblem" class="emblem">
+            <img id="simplified" src="assets/lion-and-sun-simplified.svg" alt="Simplified" class="emblem">
+            <img id="modern" src="assets/lion-and-sun.svg" alt="Modern" class="emblem">
         </div>
         <div class="stripe red"></div>
     </div>
